@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "currencies",
+  "info": {
+    "singularName": "currency",
+    "pluralName": "currencies",
+    "displayName": "currency",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "currency"
+    },
+    "bills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bill.bill",
+      "mappedBy": "currency"
+    },
+    "accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::account.account",
+      "mappedBy": "currency"
+    },
+    "fx_transfers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fx-transfer.fx-transfer",
+      "mappedBy": "currency"
+    }
+  }
+}

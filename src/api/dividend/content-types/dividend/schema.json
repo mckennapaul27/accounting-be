@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dividends",
+  "info": {
+    "singularName": "dividend",
+    "pluralName": "dividends",
+    "displayName": "dividend"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "month": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "dividends"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "dividends"
+    }
+  }
+}

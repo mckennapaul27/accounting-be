@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fx_transfers",
+  "info": {
+    "singularName": "fx-transfer",
+    "pluralName": "fx-transfers",
+    "displayName": "fxTransfer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "totalGBP": {
+      "type": "decimal"
+    },
+    "conversionRate": {
+      "type": "decimal"
+    },
+    "month": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::currency.currency",
+      "inversedBy": "fx_transfers"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "fx_transfers"
+    },
+    "nonGBPAcc": {
+      "type": "string"
+    }
+  }
+}

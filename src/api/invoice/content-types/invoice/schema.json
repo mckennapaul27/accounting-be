@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "quantity": {
+      "type": "biginteger"
+    },
+    "unitPrice": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "month": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::contact.contact"
+    },
+    "invoiceNumber": {
+      "type": "string"
+    },
+    "tax_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tax-type.tax-type"
+    },
+    "tax_rate": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tax-rate.tax-rate"
+    },
+    "totalGBP": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Paid",
+        "Pending",
+        "Confirmed"
+      ]
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::currency.currency",
+      "inversedBy": "invoices"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item",
+      "inversedBy": "invoices"
+    },
+    "conversionRate": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "string"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "invoices"
+    },
+    "credit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::credit.credit",
+      "mappedBy": "invoice"
+    }
+  }
+}

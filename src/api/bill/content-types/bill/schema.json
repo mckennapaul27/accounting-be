@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bills",
+  "info": {
+    "singularName": "bill",
+    "pluralName": "bills",
+    "displayName": "bill",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "biginteger"
+    },
+    "unitPrice": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::currency.currency",
+      "inversedBy": "bills"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "bills"
+    },
+    "month": {
+      "type": "string"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "totalGBP": {
+      "type": "decimal"
+    },
+    "conversionRate": {
+      "type": "decimal"
+    },
+    "tax_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tax-type.tax-type",
+      "inversedBy": "bills"
+    },
+    "tax_rate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tax-rate.tax-rate",
+      "inversedBy": "bills"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item",
+      "inversedBy": "bills"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Paid",
+        "Pending",
+        "Confirmed"
+      ]
+    },
+    "account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::account.account",
+      "inversedBy": "bills"
+    },
+    "isPayable": {
+      "type": "boolean",
+      "default": true
+    },
+    "debit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::debit.debit",
+      "mappedBy": "bill"
+    }
+  }
+}

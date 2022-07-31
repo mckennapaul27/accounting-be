@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tax_rates",
+  "info": {
+    "singularName": "tax-rate",
+    "pluralName": "tax-rates",
+    "displayName": "taxRate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "decimal"
+    },
+    "code": {
+      "type": "string"
+    },
+    "bills": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bill.bill",
+      "mappedBy": "tax_rate"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cashback_payments",
+  "info": {
+    "singularName": "cashback-payment",
+    "pluralName": "cashback-payments",
+    "displayName": "cashbackPayment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::currency.currency"
+    },
+    "date": {
+      "type": "date"
+    },
+    "account": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::account.account",
+      "inversedBy": "cashback_payment"
+    }
+  }
+}
