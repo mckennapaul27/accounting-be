@@ -31,7 +31,7 @@ module.exports = {
                 {
                     data: {
                         balance: liability.balance
-                            ? liability.balance - bill.total
+                            ? liability.balance + bill.total
                             : 0 + bill.total,
                     },
                 }
