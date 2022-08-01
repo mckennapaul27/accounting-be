@@ -28,9 +28,9 @@
     },
     "account": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::account.account",
-      "inversedBy": "cashback_payment"
+      "inversedBy": "cashback_payments"
     }
   }
 }

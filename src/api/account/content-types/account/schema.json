@@ -66,12 +66,6 @@
       "target": "api::debit.debit",
       "mappedBy": "account"
     },
-    "cashback_payment": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cashback-payment.cashback-payment",
-      "mappedBy": "account"
-    },
     "fx_transfers": {
       "type": "relation",
       "relation": "oneToMany",
@@ -82,6 +76,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::dividend.dividend",
+      "mappedBy": "account"
+    },
+    "cashback_payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cashback-payment.cashback-payment",
       "mappedBy": "account"
     }
   }
